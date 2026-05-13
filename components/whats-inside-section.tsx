@@ -2,7 +2,6 @@
 
 import { Map, Eye, BookOpen, ChefHat } from 'lucide-react'
 import { FloatingDoodles } from '@/components/decorative-elements'
-import { WaveDivider } from '@/components/wave-divider'
 
 const features = [
   {
@@ -126,11 +125,6 @@ export function WhatsInsideSection() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Wave divider at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <WaveDivider color="fill-primary" className="opacity-5" />
       </div>
     </section>
   )

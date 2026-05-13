@@ -1,5 +1,4 @@
 import { ClipboardList, Package, Compass } from 'lucide-react'
-import { WaveDivider } from '@/components/wave-divider'
 
 const steps = [
   {
@@ -76,11 +75,6 @@ export function HowItWorksSection() {
             })}
           </div>
         </div>
-      </div>
-
-      {/* Wave divider at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <WaveDivider color="fill-secondary/50" />
       </div>
     </section>
   )

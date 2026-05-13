@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Mail } from 'lucide-react'
 import { FloatingDoodles } from '@/components/decorative-elements'
-import { WaveDivider } from '@/components/wave-divider'
 
 export function HeroSection() {
   const scrollToSignup = () => {
@@ -108,11 +107,6 @@ export function HeroSection() {
             </svg>
           </div>
         </div>
-      </div>
-
-      {/* Wave divider at bottom */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <WaveDivider color="fill-secondary/50" />
       </div>
     </section>
   )
