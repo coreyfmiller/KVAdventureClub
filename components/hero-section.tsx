@@ -84,6 +84,14 @@ export function HeroSection() {
               </div>
             ))}
           </div>
+
+          {/* Scroll indicator */}
+          <div className="mt-16 flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
+            <svg className="w-6 h-6 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
         </div>
 
 
