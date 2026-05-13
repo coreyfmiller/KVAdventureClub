@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Rocket, CheckCircle2, Mail } from 'lucide-react'
-import { FloatingDoodles } from '@/components/decorative-elements'
 
 type FormData = {
   childName: string
@@ -86,7 +85,6 @@ export function SignupSection() {
   if (submitted) {
     return (
       <section id="signup" className="relative py-20 md:py-28 bg-primary/5">
-        <FloatingDoodles />
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto text-center">
             <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6 border-2 border-primary/30">
@@ -122,8 +120,6 @@ export function SignupSection() {
 
   return (
     <section id="signup" className="relative py-20 md:py-28 bg-primary/5">
-      <FloatingDoodles />
-
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4 border border-accent/20">
@@ -144,19 +140,9 @@ export function SignupSection() {
         </div>
 
         <div className="max-w-lg mx-auto">
-          {/* Envelope-themed form wrapper */}
+          {/* Form */}
           <div className="relative">
-            {/* Stamp decoration */}
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-accent/10 border-2 border-dashed border-accent/30 rounded-lg flex items-center justify-center rotate-6 z-10">
-              <span className="text-2xl">📬</span>
-            </div>
-
-            {/* "To" label */}
-            <div className="absolute -top-3 left-6 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full z-10">
-              <span className="text-xs font-bold text-primary">✉️ To: Your Adventurer</span>
-            </div>
-
-            <form onSubmit={handleSubmit} className="bg-card rounded-3xl border-2 border-border shadow-xl p-8 pt-10">
+            <form onSubmit={handleSubmit} className="bg-card rounded-3xl border-2 border-border shadow-xl p-8">
               <div className="space-y-6">
               {/* Child's Name */}
               <div className="space-y-2">
