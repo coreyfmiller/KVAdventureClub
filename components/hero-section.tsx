@@ -1,7 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Sparkles, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import { FloatingDoodles } from '@/components/decorative-elements'
 import { WaveDivider } from '@/components/wave-divider'
 
@@ -29,14 +30,20 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-8 border border-primary/20">
-            <Sparkles className="w-4 h-4" />
-            <span>For Kids & Teens in the Kennebecasis Valley</span>
+          {/* Logo */}
+          <div className="mb-8 flex justify-center">
+            <Image
+              src="/logo.png"
+              alt="KV Adventure Club"
+              width={280}
+              height={280}
+              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain drop-shadow-lg"
+              priority
+            />
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-foreground leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-4">
             <span className="text-primary">Adventure</span> in Your{' '}
             <span className="relative inline-block">
               <span className="relative z-10">Mailbox</span>
@@ -47,13 +54,13 @@ export function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-            Every month, receive screen-free missions, exciting scavenger hunts, 
-            collectible stickers, and local discoveries—all delivered right to your door!
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+            A monthly snail-mail subscription packed with screen-free missions, 
+            scavenger hunts, collectible stickers, and local discoveries for kids in the Kennebecasis Valley.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button 
               onClick={scrollToSignup}
               size="lg"
@@ -75,7 +82,7 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Feature Pills - bigger and more tactile */}
+          {/* Feature Pills */}
           <div className="flex flex-wrap items-center justify-center gap-4">
             {[
               { icon: '🗺️', label: 'Scavenger Hunts', rotate: '-rotate-1' },
@@ -94,7 +101,7 @@ export function HeroSection() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="mt-16 flex flex-col items-center gap-2 animate-bounce">
+          <div className="mt-14 flex flex-col items-center gap-2 animate-bounce">
             <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
             <svg className="w-6 h-6 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
