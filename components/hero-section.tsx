@@ -30,7 +30,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4 pt-0">
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo */}
-          <div className="mb-0 flex justify-center">
+          <div className="-mb-4 flex justify-center">
             <Image
               src="/logo.png"
               alt="KV Adventure Club"
