@@ -36,16 +36,47 @@ const interestOptions = [
 export function SignupSection() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/coreyfmiller@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          childName: formData.childName,
+          mailingAddress: formData.mailingAddress,
+          ageRange: formData.ageRange,
+          interests: formData.interests === 'other' ? formData.otherInterests : formData.interests,
+          additionalComments: formData.additionalComments,
+          _subject: `New KV Adventure Club Signup: ${formData.childName}`,
+          _captcha: 'false',
+        }),
+      })
+
+      const result = await response.json()
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        alert('Something went wrong. Please try again!')
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      alert('Something went wrong. Please try again!')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const isFormValid = formData.childName && formData.mailingAddress && formData.ageRange && formData.interests
@@ -64,9 +95,21 @@ export function SignupSection() {
             <p className="text-muted-foreground text-lg mb-6">
               {"We've"} received your signup. Get ready for {formData.childName}&apos;s first adventure kit to arrive soon!
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 text-accent font-semibold">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 text-accent font-semibold mb-6">
               <Mail className="w-5 h-5" />
               Adventure awaits!
+            </div>
+            <div>
+              <Button
+                onClick={() => {
+                  setFormData(initialFormData)
+                  setSubmitted(false)
+                }}
+                variant="outline"
+                className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8 py-6 text-lg transition-all"
+              >
+                Sign Up Another Child
+              </Button>
             </div>
           </div>
         </div>
@@ -211,11 +254,11 @@ export function SignupSection() {
             <div className="mt-8 pt-6 border-t border-border">
               <Button
                 type="submit"
-                disabled={!isFormValid}
+                disabled={!isFormValid || isSubmitting}
                 className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 text-lg shadow-lg shadow-accent/25"
               >
                 <Rocket className="w-5 h-5 mr-2" />
-                Start the Adventure
+                {isSubmitting ? 'Sending...' : 'Start the Adventure'}
               </Button>
             </div>
           </form>
