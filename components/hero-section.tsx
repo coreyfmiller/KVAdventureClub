@@ -2,6 +2,8 @@
 
 import { Button } from '@/components/ui/button'
 import { Sparkles, Mail } from 'lucide-react'
+import { FloatingDoodles } from '@/components/decorative-elements'
+import { WaveDivider } from '@/components/wave-divider'
 
 export function HeroSection() {
   const scrollToSignup = () => {
@@ -15,16 +17,20 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background decorations */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-24 h-24 rounded-full bg-sky/20 blur-2xl" />
-        <div className="absolute top-40 right-20 w-32 h-32 rounded-full bg-sunset/20 blur-2xl" />
-        <div className="absolute bottom-20 left-1/4 w-40 h-40 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-40 right-10 w-28 h-28 rounded-full bg-sky/15 blur-2xl" />
+        <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-sky/20 blur-3xl" />
+        <div className="absolute top-40 right-20 w-40 h-40 rounded-full bg-sunset/20 blur-3xl" />
+        <div className="absolute bottom-20 left-1/4 w-48 h-48 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-40 right-10 w-36 h-36 rounded-full bg-sky/15 blur-3xl" />
+        <div className="absolute top-1/3 left-1/2 w-64 h-64 rounded-full bg-accent/5 blur-3xl" />
       </div>
+
+      {/* Floating doodles */}
+      <FloatingDoodles />
 
       <div className="container mx-auto px-4 py-12 md:py-20">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-8">
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-8 border border-primary/20">
             <Sparkles className="w-4 h-4" />
             <span>For Kids & Teens in the Kennebecasis Valley</span>
           </div>
@@ -34,7 +40,9 @@ export function HeroSection() {
             <span className="text-primary">Adventure</span> in Your{' '}
             <span className="relative inline-block">
               <span className="relative z-10">Mailbox</span>
-              <span className="absolute bottom-2 left-0 w-full h-3 bg-accent/30 -z-10 rounded" />
+              <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none">
+                <path d="M2 8 C50 2, 150 2, 198 8" stroke="currentColor" strokeWidth="4" fill="none" className="text-accent/50" strokeLinecap="round" />
+              </svg>
             </span>
           </h1>
 
@@ -49,7 +57,7 @@ export function HeroSection() {
             <Button 
               onClick={scrollToSignup}
               size="lg"
-              className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-8 py-6 text-lg shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-all hover:-translate-y-0.5"
+              className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold px-8 py-6 text-lg shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30 transition-all hover:-translate-y-1 hover:scale-105"
             >
               <Mail className="w-5 h-5 mr-2" />
               Start the Adventure
@@ -61,26 +69,26 @@ export function HeroSection() {
                 const element = document.getElementById('whats-inside')
                 if (element) element.scrollIntoView({ behavior: 'smooth' })
               }}
-              className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8 py-6 text-lg transition-all"
+              className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8 py-6 text-lg transition-all hover:-translate-y-0.5"
             >
               See {"What's"} Inside
             </Button>
           </div>
 
-          {/* Feature Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          {/* Feature Pills - bigger and more tactile */}
+          <div className="flex flex-wrap items-center justify-center gap-4">
             {[
-              { icon: '🗺️', label: 'Scavenger Hunts' },
-              { icon: '🔮', label: 'Secret Missions' },
-              { icon: '⭐', label: 'Collectible Stickers' },
-              { icon: '🍪', label: 'Easy Recipes' },
+              { icon: '🗺️', label: 'Scavenger Hunts', rotate: '-rotate-1' },
+              { icon: '🔮', label: 'Secret Missions', rotate: 'rotate-1' },
+              { icon: '⭐', label: 'Collectible Stickers', rotate: '-rotate-2' },
+              { icon: '🍪', label: 'Easy Recipes', rotate: 'rotate-1' },
             ].map((item) => (
               <div 
                 key={item.label}
-                className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border shadow-sm"
+                className={`flex items-center gap-3 px-5 py-3 rounded-2xl bg-card border-2 border-border shadow-md hover:shadow-lg hover:-translate-y-1 transition-all cursor-default ${item.rotate}`}
               >
-                <span className="text-lg">{item.icon}</span>
-                <span className="font-semibold text-foreground text-sm">{item.label}</span>
+                <span className="text-2xl">{item.icon}</span>
+                <span className="font-bold text-foreground">{item.label}</span>
               </div>
             ))}
           </div>
@@ -93,8 +101,11 @@ export function HeroSection() {
             </svg>
           </div>
         </div>
+      </div>
 
-
+      {/* Wave divider at bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <WaveDivider color="fill-secondary/50" />
       </div>
     </section>
   )

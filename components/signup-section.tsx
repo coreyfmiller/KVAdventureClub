@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Rocket, CheckCircle2, Mail } from 'lucide-react'
+import { FloatingDoodles } from '@/components/decorative-elements'
 
 type FormData = {
   childName: string
@@ -84,11 +85,12 @@ export function SignupSection() {
 
   if (submitted) {
     return (
-      <section id="signup" className="py-20 md:py-28 bg-primary/5">
+      <section id="signup" className="relative py-20 md:py-28 bg-primary/5">
+        <FloatingDoodles />
         <div className="container mx-auto px-4">
           <div className="max-w-md mx-auto text-center">
-            <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6">
-              <CheckCircle2 className="w-10 h-10 text-primary" />
+            <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-6 border-2 border-primary/30">
+              <CheckCircle2 className="w-12 h-12 text-primary" />
             </div>
             <h2 className="text-3xl font-black text-foreground mb-4">
               {"You're"} on the List!
@@ -96,7 +98,7 @@ export function SignupSection() {
             <p className="text-muted-foreground text-lg mb-6">
               {"We've"} received your signup. Get ready for {formData.childName}&apos;s first adventure kit to arrive soon!
             </p>
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 text-accent font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 text-accent font-semibold mb-6 border border-accent/20">
               <Mail className="w-5 h-5" />
               Adventure awaits!
             </div>
@@ -107,7 +109,7 @@ export function SignupSection() {
                   setSubmitted(false)
                 }}
                 variant="outline"
-                className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8 py-6 text-lg transition-all"
+                className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8 py-6 text-lg transition-all hover:-translate-y-0.5"
               >
                 Sign Up Another Child
               </Button>
@@ -119,14 +121,22 @@ export function SignupSection() {
   }
 
   return (
-    <section id="signup" className="py-20 md:py-28 bg-primary/5">
+    <section id="signup" className="relative py-20 md:py-28 bg-primary/5">
+      <FloatingDoodles />
+
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4 border border-accent/20">
             Join the Club
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4">
-            Start Your <span className="text-primary">Adventure</span>
+            Start Your{' '}
+            <span className="relative inline-block">
+              <span className="relative z-10 text-primary">Adventure</span>
+              <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 12" preserveAspectRatio="none">
+                <path d="M2 8 C50 2, 150 2, 198 8" stroke="currentColor" strokeWidth="4" fill="none" className="text-primary/40" strokeLinecap="round" />
+              </svg>
+            </span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Sign up below and {"we'll"} start preparing your first monthly adventure kit!
@@ -134,9 +144,20 @@ export function SignupSection() {
         </div>
 
         <div className="max-w-lg mx-auto">
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="bg-card rounded-3xl border border-border shadow-xl p-8">
-            <div className="space-y-6">
+          {/* Envelope-themed form wrapper */}
+          <div className="relative">
+            {/* Stamp decoration */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-accent/10 border-2 border-dashed border-accent/30 rounded-lg flex items-center justify-center rotate-6 z-10">
+              <span className="text-2xl">📬</span>
+            </div>
+
+            {/* "To" label */}
+            <div className="absolute -top-3 left-6 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full z-10">
+              <span className="text-xs font-bold text-primary">✉️ To: Your Adventurer</span>
+            </div>
+
+            <form onSubmit={handleSubmit} className="bg-card rounded-3xl border-2 border-border shadow-xl p-8 pt-10">
+              <div className="space-y-6">
               {/* Child's Name */}
               <div className="space-y-2">
                 <Label htmlFor="childName" className="text-foreground font-semibold">
@@ -256,13 +277,14 @@ export function SignupSection() {
               <Button
                 type="submit"
                 disabled={!isFormValid || isSubmitting}
-                className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 text-lg shadow-lg shadow-accent/25"
+                className="w-full rounded-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold h-14 text-lg shadow-lg shadow-accent/25 hover:-translate-y-0.5 hover:shadow-xl transition-all"
               >
                 <Rocket className="w-5 h-5 mr-2" />
                 {isSubmitting ? 'Sending...' : 'Start the Adventure'}
               </Button>
             </div>
           </form>
+          </div>
 
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8 text-sm text-muted-foreground">

@@ -1,12 +1,14 @@
 import { ClipboardList, Package, Compass } from 'lucide-react'
+import { WaveDivider } from '@/components/wave-divider'
 
 const steps = [
   {
     icon: ClipboardList,
     title: 'Sign Up',
-    description: 'Fill out our quick form with your info and your adventurer&apos;s age so we can customize their experience.',
+    description: 'Fill out our quick form with your info and your adventurer\u2019s age so we can customize their experience.',
     color: 'text-primary',
     bgColor: 'bg-primary/10',
+    borderColor: 'border-primary/20',
   },
   {
     icon: Package,
@@ -14,6 +16,7 @@ const steps = [
     description: 'Every month, a surprise-filled envelope arrives at your door, packed with screen-free activities.',
     color: 'text-accent',
     bgColor: 'bg-accent/10',
+    borderColor: 'border-accent/20',
   },
   {
     icon: Compass,
@@ -21,15 +24,16 @@ const steps = [
     description: 'Head outside to complete missions, learn about the KV, and create unforgettable memories!',
     color: 'text-sky',
     bgColor: 'bg-sky/10',
+    borderColor: 'border-sky/20',
   },
 ]
 
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28">
+    <section id="how-it-works" className="relative py-20 md:py-28 bg-cream/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-sky/10 text-sky font-semibold text-sm mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-sky/10 text-sky font-semibold text-sm mb-4 border border-sky/20">
             Simple & Fun
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4">
@@ -45,18 +49,18 @@ export function HowItWorksSection() {
             {steps.map((step, index) => {
               const Icon = step.icon
               return (
-                <div key={step.title} className="relative text-center">
+                <div key={step.title} className="relative text-center group">
                   {/* Connector line */}
                   {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-12 left-1/2 w-full h-0.5 bg-border" />
+                    <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-0.5 border-t-2 border-dashed border-border" />
                   )}
                   
-                  {/* Step number */}
-                  <div className="relative z-10 w-24 h-24 rounded-3xl bg-card border-2 border-border shadow-lg flex flex-col items-center justify-center mx-auto mb-6">
-                    <div className={`w-14 h-14 rounded-2xl ${step.bgColor} flex items-center justify-center`}>
-                      <Icon className={`w-7 h-7 ${step.color}`} />
+                  {/* Step card */}
+                  <div className={`relative z-10 w-28 h-28 rounded-3xl bg-card border-2 ${step.borderColor} shadow-lg flex flex-col items-center justify-center mx-auto mb-6 group-hover:-translate-y-1 group-hover:shadow-xl transition-all`}>
+                    <div className={`w-16 h-16 rounded-2xl ${step.bgColor} flex items-center justify-center`}>
+                      <Icon className={`w-8 h-8 ${step.color}`} />
                     </div>
-                    <span className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-foreground text-background font-bold text-sm flex items-center justify-center">
+                    <span className="absolute -top-3 -right-3 w-9 h-9 rounded-full bg-foreground text-background font-black text-sm flex items-center justify-center shadow-md">
                       {index + 1}
                     </span>
                   </div>
@@ -72,6 +76,11 @@ export function HowItWorksSection() {
             })}
           </div>
         </div>
+      </div>
+
+      {/* Wave divider at bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <WaveDivider color="fill-secondary/50" />
       </div>
     </section>
   )
