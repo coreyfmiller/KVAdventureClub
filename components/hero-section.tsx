@@ -15,7 +15,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative h-screen flex items-start justify-center overflow-hidden pt-20">
+    <section className="relative h-screen flex items-start justify-center overflow-hidden pt-16">
       {/* Background decorations */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-sky/20 blur-3xl" />
@@ -28,22 +28,22 @@ export function HeroSection() {
       {/* Floating doodles */}
       <FloatingDoodles />
 
-      <div className="container mx-auto px-4 pt-2 md:pt-4">
+      <div className="container mx-auto px-4 pt-0">
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo */}
-          <div className="mb-2 flex justify-center">
+          <div className="mb-1 flex justify-center">
             <Image
               src="/logo.png"
               alt="KV Adventure Club"
-              width={400}
-              height={400}
-              className="w-52 h-52 sm:w-60 sm:h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain drop-shadow-lg"
+              width={500}
+              height={500}
+              className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[26rem] lg:h-[26rem] object-contain drop-shadow-lg"
               priority
             />
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-1">
             <span className="text-primary">Adventure</span> in Your{' '}
             <span className="relative inline-block">
               <span className="relative z-10">Mailbox</span>
@@ -54,13 +54,13 @@ export function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-5 leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-4 leading-relaxed">
             A monthly snail-mail subscription packed with screen-free missions, 
             scavenger hunts, collectible stickers, and local discoveries for kids in the Kennebecasis Valley.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-5">
             <Button 
               onClick={scrollToSignup}
               size="lg"
@@ -101,7 +101,7 @@ export function HeroSection() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="mt-6 flex flex-col items-center gap-1 animate-bounce">
+          <div className="mt-4 flex flex-col items-center gap-1 animate-bounce">
             <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
             <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
