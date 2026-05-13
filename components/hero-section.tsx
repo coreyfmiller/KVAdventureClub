@@ -28,22 +28,22 @@ export function HeroSection() {
       {/* Floating doodles */}
       <FloatingDoodles />
 
-      <div className="container mx-auto px-4 py-12 md:py-20">
+      <div className="container mx-auto px-4 py-4 md:py-8">
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo */}
-          <div className="mb-8 flex justify-center">
+          <div className="mb-4 flex justify-center">
             <Image
               src="/logo.png"
               alt="KV Adventure Club"
-              width={280}
-              height={280}
-              className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain drop-shadow-lg"
+              width={400}
+              height={400}
+              className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-lg"
               priority
             />
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground leading-tight mb-3">
             <span className="text-primary">Adventure</span> in Your{' '}
             <span className="relative inline-block">
               <span className="relative z-10">Mailbox</span>
@@ -54,13 +54,13 @@ export function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed">
             A monthly snail-mail subscription packed with screen-free missions, 
             scavenger hunts, collectible stickers, and local discoveries for kids in the Kennebecasis Valley.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
             <Button 
               onClick={scrollToSignup}
               size="lg"
