@@ -36,7 +36,7 @@ export function HeroSection() {
               alt="KV Adventure Club"
               width={500}
               height={500}
-              className="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[26rem] lg:h-[26rem] object-contain drop-shadow-lg"
+              className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain drop-shadow-lg"
               priority
             />
           </div>
