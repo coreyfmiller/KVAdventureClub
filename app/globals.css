@@ -5,7 +5,7 @@
 
 :root {
   /* Adventure Club Colors - Forest Green, Sunset Orange, Sky Blue */
-  --background: oklch(0.98 0.01 90);
+  --background: oklch(0.95 0.03 85);
   --foreground: oklch(0.25 0.04 145);
   
   --card: oklch(1 0 0);
