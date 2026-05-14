@@ -1,12 +1,20 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { Compass, Mail, TreePine } from 'lucide-react'
 
 export function Footer() {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+  const pathname = usePathname()
+
+  const navigateToSection = (id: string) => {
+    if (pathname === '/') {
+      const element = document.getElementById(id)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      window.location.href = `/#${id}`
     }
   }
 
@@ -15,7 +23,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-primary-foreground/20 flex items-center justify-center">
               <Compass className="w-6 h-6 text-primary-foreground" />
             </div>
@@ -23,12 +31,12 @@ export function Footer() {
               <span className="text-xl font-extrabold block">KV Adventure Club</span>
               <span className="text-sm text-primary-foreground/70">Kennebecasis Valley</span>
             </div>
-          </div>
+          </Link>
 
           {/* Links */}
           <nav className="flex items-center gap-8">
             <button 
-              onClick={() => scrollToSection('how-it-works')}
+              onClick={() => navigateToSection('how-it-works')}
               className="text-primary-foreground/80 hover:text-primary-foreground font-medium transition-colors"
             >
               How it Works
@@ -52,7 +60,7 @@ export function Footer() {
         <div className="mt-10 pt-6 border-t border-primary-foreground/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/60">
           <p>&copy; {new Date().getFullYear()} KV Adventure Club. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <a href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
+            <Link href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</Link>
             <p>Screen-free adventures for curious kids.</p>
           </div>
         </div>
