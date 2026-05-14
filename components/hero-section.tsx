@@ -82,6 +82,24 @@ export function HeroSection() {
                 See {"What's"} Inside
               </Button>
             </div>
+
+            {/* Feature Pills */}
+            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-4">
+              {[
+                { icon: '🗺️', label: 'Scavenger Hunts' },
+                { icon: '🔮', label: 'Secret Missions' },
+                { icon: '⭐', label: 'Collectible Stickers' },
+                { icon: '🍪', label: 'Easy Recipes' },
+              ].map((item) => (
+                <div 
+                  key={item.label}
+                  className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2.5 rounded-full bg-card border border-border shadow-sm"
+                >
+                  <span className="text-base md:text-lg">{item.icon}</span>
+                  <span className="font-semibold text-foreground text-xs md:text-sm">{item.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
