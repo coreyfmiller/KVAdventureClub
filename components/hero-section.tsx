@@ -82,30 +82,12 @@ export function HeroSection() {
                 See {"What's"} Inside
               </Button>
             </div>
-
-            {/* Feature Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mt-4">
-              {[
-                { icon: '🗺️', label: 'Scavenger Hunts' },
-                { icon: '🔮', label: 'Secret Missions' },
-                { icon: '⭐', label: 'Collectible Stickers' },
-                { icon: '🍪', label: 'Easy Recipes' },
-              ].map((item) => (
-                <div 
-                  key={item.label}
-                  className="flex items-center gap-2 px-3 py-2 md:px-4 md:py-2.5 rounded-full bg-card border border-border shadow-sm"
-                >
-                  <span className="text-base md:text-lg">{item.icon}</span>
-                  <span className="font-semibold text-foreground text-xs md:text-sm">{item.label}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator - pinned to bottom */}
-      <div className="flex flex-col items-center gap-1 animate-bounce mb-2">
+      {/* Scroll indicator - absolutely pinned to bottom */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
         <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
         <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
