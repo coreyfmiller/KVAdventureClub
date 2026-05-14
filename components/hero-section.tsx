@@ -14,7 +14,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative h-screen flex flex-col items-center justify-between bg-background pt-20 pb-6">
+    <section className="relative h-screen flex flex-col bg-background pt-20 pb-6">
       {/* Background decorations */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-sky/20 blur-3xl" />
@@ -28,7 +28,7 @@ export function HeroSection() {
       <FloatingDoodles />
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col items-center justify-start pt-2 md:pt-4">
+      <div className="flex flex-col items-center justify-start pt-2 md:pt-4">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Logo */}
@@ -86,12 +86,14 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator - absolutely pinned to bottom */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-bounce">
-        <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
-        <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+      {/* Scroll indicator - fills remaining space, sits at bottom */}
+      <div className="flex-1 flex flex-col items-center justify-end pb-2">
+        <div className="flex flex-col items-center gap-1 animate-bounce">
+          <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
+          <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </div>
     </section>
   )
