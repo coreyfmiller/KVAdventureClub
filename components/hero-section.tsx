@@ -61,7 +61,7 @@ export function HeroSection() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button 
                 onClick={scrollToSignup}
                 size="lg"
@@ -81,24 +81,6 @@ export function HeroSection() {
               >
                 See {"What's"} Inside
               </Button>
-            </div>
-
-            {/* Feature Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-              {[
-                { icon: '🗺️', label: 'Scavenger Hunts', rotate: '-rotate-1' },
-                { icon: '🔮', label: 'Secret Missions', rotate: 'rotate-1' },
-                { icon: '⭐', label: 'Collectible Stickers', rotate: '-rotate-2' },
-                { icon: '🍪', label: 'Easy Recipes', rotate: 'rotate-1' },
-              ].map((item) => (
-                <div 
-                  key={item.label}
-                  className={`flex items-center gap-2 px-3 py-2 md:px-4 md:py-2.5 rounded-2xl bg-card border-2 border-border shadow-md hover:shadow-lg hover:-translate-y-1 transition-all cursor-default ${item.rotate}`}
-                >
-                  <span className="text-lg md:text-xl">{item.icon}</span>
-                  <span className="font-bold text-foreground text-xs md:text-sm">{item.label}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>
