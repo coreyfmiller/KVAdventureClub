@@ -51,7 +51,10 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-primary-foreground/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-primary-foreground/60">
           <p>&copy; {new Date().getFullYear()} KV Adventure Club. All rights reserved.</p>
-          <p>Screen-free adventures for curious kids.</p>
+          <div className="flex items-center gap-4">
+            <a href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
+            <p>Screen-free adventures for curious kids.</p>
+          </div>
         </div>
       </div>
     </footer>

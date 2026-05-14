@@ -37,6 +37,7 @@ export function SignupSection() {
   const [formData, setFormData] = useState<FormData>(initialFormData)
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [consentChecked, setConsentChecked] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -80,7 +81,7 @@ export function SignupSection() {
     }
   }
 
-  const isFormValid = formData.childName && formData.mailingAddress && formData.ageRange && formData.interests
+  const isFormValid = formData.childName && formData.mailingAddress && formData.ageRange && formData.interests && consentChecked
 
   if (submitted) {
     return (
@@ -105,6 +106,7 @@ export function SignupSection() {
                 onClick={() => {
                   setFormData(initialFormData)
                   setSubmitted(false)
+                  setConsentChecked(false)
                 }}
                 variant="outline"
                 className="rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bold px-8 py-6 text-lg transition-all hover:-translate-y-0.5"
@@ -258,8 +260,27 @@ export function SignupSection() {
               </div>
             </div>
 
+            {/* Consent Checkbox */}
+            <div className="mt-6">
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={consentChecked}
+                  onChange={(e) => setConsentChecked(e.target.checked)}
+                  className="w-5 h-5 mt-0.5 rounded accent-primary flex-shrink-0"
+                />
+                <span className="text-sm text-muted-foreground leading-relaxed">
+                  I am the parent/guardian and consent to this information being used to mail 
+                  adventure kits to my child. I have read the{' '}
+                  <a href="/privacy" target="_blank" className="text-primary hover:underline font-medium">
+                    Privacy Policy
+                  </a>.
+                </span>
+              </label>
+            </div>
+
             {/* Submit Button */}
-            <div className="mt-8 pt-6 border-t border-border">
+            <div className="mt-6 pt-6 border-t border-border">
               <Button
                 type="submit"
                 disabled={!isFormValid || isSubmitting}
