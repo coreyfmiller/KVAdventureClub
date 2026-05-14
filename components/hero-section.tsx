@@ -28,17 +28,17 @@ export function HeroSection() {
       <FloatingDoodles />
 
       {/* Main content */}
-      <div className="flex-1 flex items-center pb-8">
+      <div className="flex-1 flex flex-col items-center justify-start pt-2 md:pt-4">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             {/* Logo */}
-            <div className="-mb-2 flex justify-center">
+            <div className="mb-1 flex justify-center">
               <Image
                 src="/logo.png"
                 alt="KV Adventure Club"
                 width={500}
                 height={500}
-                className="w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain drop-shadow-lg"
+                className="w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-[22rem] lg:h-[22rem] object-contain drop-shadow-lg"
                 priority
               />
             </div>
