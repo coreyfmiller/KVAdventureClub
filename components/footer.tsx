@@ -61,8 +61,19 @@ export function Footer() {
           <p>&copy; {new Date().getFullYear()} KV Adventure Club. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-primary-foreground transition-colors">Privacy Policy</Link>
-            <p>Screen-free adventures for curious kids.</p>
+            <Link href="/contact" className="hover:text-primary-foreground transition-colors">Contact</Link>
           </div>
+        </div>
+
+        <div className="mt-4 text-center">
+          <a 
+            href="https://fundylogic.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-xs text-primary-foreground/30 hover:text-primary-foreground/60 transition-colors"
+          >
+            Built for fun by FundyLogic
+          </a>
         </div>
       </div>
     </footer>
