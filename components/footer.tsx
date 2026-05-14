@@ -41,13 +41,13 @@ export function Footer() {
             >
               How it Works
             </button>
-            <a 
-              href="mailto:hello@kvadventureclub.ca"
+            <Link 
+              href="/contact"
               className="text-primary-foreground/80 hover:text-primary-foreground font-medium transition-colors flex items-center gap-2"
             >
               <Mail className="w-4 h-4" />
               Contact Us
-            </a>
+            </Link>
           </nav>
 
           {/* Decorative */}
