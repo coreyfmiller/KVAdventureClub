@@ -8,6 +8,7 @@ import { Rocket, CheckCircle2, Mail } from 'lucide-react'
 
 type FormData = {
   childName: string
+  lastName: string
   mailingAddress: string
   ageRange: string
   interests: string
@@ -17,6 +18,7 @@ type FormData = {
 
 const initialFormData: FormData = {
   childName: '',
+  lastName: '',
   mailingAddress: '',
   ageRange: '',
   interests: '',
@@ -57,9 +59,10 @@ export function SignupSection() {
         },
         body: JSON.stringify({
           access_key: '42404944-0465-4f35-bdad-6ad78cf5ca31',
-          subject: `New KV Adventure Club Signup: ${formData.childName}`,
+          subject: `New KV Adventure Club Signup: ${formData.childName} ${formData.lastName}`,
           from_name: 'KV Adventure Club',
           childName: formData.childName,
+          lastName: formData.lastName,
           mailingAddress: formData.mailingAddress,
           ageRange: formData.ageRange,
           interests: formData.interests === 'other' ? formData.otherInterests : formData.interests,
@@ -81,7 +84,7 @@ export function SignupSection() {
     }
   }
 
-  const isFormValid = formData.childName && formData.mailingAddress && formData.ageRange && formData.interests && consentChecked
+  const isFormValid = formData.childName && formData.lastName && formData.mailingAddress && formData.ageRange && formData.interests && consentChecked
 
   if (submitted) {
     return (
@@ -95,7 +98,7 @@ export function SignupSection() {
               {"You're"} on the List!
             </h2>
             <p className="text-muted-foreground text-lg mb-6">
-              {"We've"} received your signup. Get ready for {formData.childName}&apos;s first adventure kit to arrive soon!
+              {"We've"} received your signup. Get ready for {formData.childName} {formData.lastName}&apos;s first adventure kit to arrive soon!
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent/10 text-accent font-semibold mb-6 border border-accent/20">
               <Mail className="w-5 h-5" />
@@ -152,16 +155,28 @@ export function SignupSection() {
                   {"Child's"} Name <span className="text-accent">*</span>
                 </Label>
                 <p className="text-xs text-muted-foreground">Mail will be addressed to this name</p>
-                <Input
-                  id="childName"
-                  name="childName"
-                  type="text"
-                  placeholder="First name"
-                  value={formData.childName}
-                  onChange={handleChange}
-                  className="rounded-xl h-12 bg-background"
-                  required
-                />
+                <div className="grid grid-cols-2 gap-3">
+                  <Input
+                    id="childName"
+                    name="childName"
+                    type="text"
+                    placeholder="First name"
+                    value={formData.childName}
+                    onChange={handleChange}
+                    className="rounded-xl h-12 bg-background"
+                    required
+                  />
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    placeholder="Last name"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="rounded-xl h-12 bg-background"
+                    required
+                  />
+                </div>
               </div>
 
               {/* Mailing Address */}
