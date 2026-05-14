@@ -14,7 +14,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section className="relative min-h-screen flex items-center justify-center bg-background pt-20 pb-8">
       {/* Background decorations */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-sky/20 blur-3xl" />
