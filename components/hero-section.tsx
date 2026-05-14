@@ -87,8 +87,8 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator - fills remaining space, sits at bottom */}
-      <div className="flex-1 flex flex-col items-center justify-end pb-2">
-        <div className="flex flex-col items-center gap-1 animate-bounce">
+      <div className="flex-1 flex flex-col items-center justify-end pb-2 min-h-16">
+        <div className="flex flex-col items-center gap-1 animate-bounce mt-4">
           <span className="text-sm text-muted-foreground font-medium">Scroll to explore</span>
           <svg className="w-5 h-5 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
