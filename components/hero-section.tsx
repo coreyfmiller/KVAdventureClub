@@ -30,7 +30,7 @@ export function HeroSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Logo */}
-          <div className="mb-0 flex justify-center">
+          <div className="-mb-3 flex justify-center">
             <Image
               src="/logo.png"
               alt="KV Adventure Club"
@@ -53,13 +53,13 @@ export function HeroSection() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-6 leading-normal">
+          <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto mb-4 leading-normal">
             A monthly snail-mail subscription packed with screen-free missions, 
             scavenger hunts, collectible stickers, and local discoveries for kids in the Kennebecasis Valley.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
             <Button 
               onClick={scrollToSignup}
               size="lg"
